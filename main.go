@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -16,4 +17,21 @@ func main() {
 		str += fmt.Sprintf("%s", v)
 	}
 	fmt.Printf("%s\n", str)
+
+	if err := writeLine("args.txt", str); err != nil {
+		log.Fatalf("error : %v\n", err)
+	}
+}
+
+func writeLine(filename string, line string) error {
+	file, err := os.Create(filename)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	if _, err := file.WriteString(line); err != nil {
+		return err
+	}
+	return nil
 }
