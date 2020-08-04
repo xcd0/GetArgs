@@ -2,7 +2,8 @@
 BIN=GetArgs
 DST=bin
 GOARCH=amd64
-FLAGS_WIN=-ldflags='-H windowsgui -w -s -extldflags "-static"' -a -tags netgo -installsuffix netgo
+#FLAGS_WIN=-ldflags='-H windowsgui -w -s -extldflags "-static"' -a -tags netgo -installsuffix netgo
+FLAGS_WIN=-ldflags='-w -s -extldflags "-static"' -a -tags netgo -installsuffix netgo
 FLAGS=-ldflags='-w -s -extldflags "-static"' -a -tags netgo -installsuffix netgo
 
 .PHONY: build
